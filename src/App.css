@@ -1,1 +1,113 @@
 /* Other rules */
+/* COMMON STYLES */
+@font-face {
+    font-family: 'Maison';
+    src: url('/src/assets/fonts/Font.eot');
+    src: url('/src/assets/fonts/Font.eot?#iefix') format('embedded-opentype'),
+        url('/src/assets/fonts/Font.woff2') format('woff2'),
+        url('/src/assets/fonts/Font.woff') format('woff'),
+        url('/src/assets/fonts/Font.ttf') format('truetype'),
+        url('/src/assets/fonts/Font.svg#Font') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+header,
+.Home,
+.Offers {
+    font-family: "Maison";
+}
+
+/* HEADER */
+
+.header-container {
+    display: flex;
+    width: 1280px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 0;
+    font-family: "Maison";
+
+}
+
+.logo img {
+    height: 40px;
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-input {
+    width: 590px;
+    padding-left: 40px;
+    background-color: #f5f6f7;
+    border-radius: 5px;
+    height: 37px;
+    border: none;
+    outline: none;
+    font-family: "Maison Neue";
+    font-size: 16px;
+}
+
+.slider-bar {
+    margin-top: 25px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+
+/* buttons */
+
+
+.header-button {
+    background-color: #fff;
+    color: #2cb1ba;
+    height: 30px;
+    width: 115px;
+    border: 1px solid #2cb1ba;
+    border-radius: 5px;
+    font-family: "Maison";
+    font-size: 12px;
+    outline: none;
+}
+
+.subscribe {
+    margin-right: 20px;
+}
+
+.sell-button {
+    background-color: #2cb1ba;
+    color: #fff;
+    text-align: center;
+    align-self: center;
+}
+
+/* HOME */
+/* Heros */
+.heros {
+    background-image: url(./assets/hero.jpg);
+    height: 455px;
+    width: 100%;
+    position: relative;
+    background-position: 50%;
+    background-size: cover;
+}
+
+/* Wrapper */
+.home-card-wrapper{
+    width: 1280px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px auto auto;
+    border: lawngreen 1px solid;
+}
+
+.home-card-container{
+    width: 235px;
+    padding: 0 6px 16px;
+    cursor: pointer;
+}
