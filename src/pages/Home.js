@@ -1,12 +1,6 @@
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 
-const handleClick = (id) => {
-  <Link to={`/offer/${id}`}></Link>;
-  console.log("clicked");
-  console.log(`/offer/${id}`);
-};
-
 const Home = ({ data }) => {
   return (
     <div className="Home">
@@ -15,12 +9,8 @@ const Home = ({ data }) => {
       <div className="home-card-wrapper">
         {data.map((item, index) => {
           return (
-            <div className="home-card-container" key={index}>
-              <div
-                onClick={() => {
-                  handleClick(item._id);
-                }}
-              >
+            <Link to={`/offer/${item._id}`}>
+              <div className="home-card-container" key={index}>
                 <p>{item._id}</p>
                 {console.log(item)}
                 <p>{item.product_name}</p>
@@ -34,7 +24,7 @@ const Home = ({ data }) => {
                   );
                 })}
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

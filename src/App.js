@@ -15,7 +15,8 @@ function App() {
         const response = await axios.get(
           "https://vinted-api-matt.herokuapp.com/offers"
         );
-        setData(response.data.offers);
+  
+        setData(response.data.offer);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);

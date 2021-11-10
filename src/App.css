@@ -98,7 +98,7 @@ header,
 }
 
 /* Wrapper */
-.home-card-wrapper{
+.home-card-wrapper {
     width: 1280px;
     display: flex;
     flex-wrap: wrap;
@@ -106,8 +106,46 @@ header,
     border: lawngreen 1px solid;
 }
 
-.home-card-container{
+.home-card-container {
     width: 235px;
     padding: 0 6px 16px;
     cursor: pointer;
+}
+
+.offer-body {
+    height: calc(100vh - 60px);
+    background-color: #ebedee;
+}
+
+.offer-container {
+    width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    grid-gap: 30px;
+    gap: 30px;
+}
+
+.offer-picture {
+    height: 600px;
+    object-fit: cover;
+}
+
+.offer-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    width: 320px;
+    padding: 40px;
+}
+
+.offer-list {
+    padding: 0;
+}
+
+.offer-list li {
+    display: flex;
+    padding: 2px 0;
 }
