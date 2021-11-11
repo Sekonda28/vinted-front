@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
+import Signup from "./pages/Signup";
 
 function App() {
 
@@ -12,8 +13,10 @@ function App() {
     <Router>
           <Header />
       <Routes>
+      <Route path="/offer/:id" element={<Offer />}></Route>
+      <Route path= "/signup" element = {<Signup />}></Route>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/offer/:id" element={<Offer />}></Route>
+        
       </Routes>
     </Router>
   );

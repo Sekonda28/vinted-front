@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router";
+
 import vintedLogo from "../assets/vinted-logo.png";
 
 const Header = () => {
+  const navigate = useNavigate()
   return (
     <header>
       <div className="header-container">
@@ -12,7 +15,7 @@ const Header = () => {
           <p className="slider-bar">Placeholder</p>
         </div>
         <div className="connect">
-          <button className="header-button subscribe"> S'inscrire</button>
+          <button onClick = {()=>navigate("/signup")}className="header-button subscribe"> S'inscrire</button>
           <button className="header-button login">Se connecter</button>
         </div>
 

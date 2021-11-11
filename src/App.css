@@ -23,8 +23,27 @@ a:active {
 
 header,
 .Home,
-.Offers {
+.Offers,
+.sign-up-container {
     font-family: "Maison";
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
 /* HEADER */
@@ -147,42 +166,98 @@ header,
     color: #999;
 
 }
-    /* OFFER PAGE */
 
-    .offer-body {
-        height: calc(100vh - 60px);
-        background-color: #ebedee;
-    }
+/* OFFER PAGE */
 
-    .offer-container {
-        width: 1280px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-around;
-        padding: 30px;
-        grid-gap: 30px;
-        gap: 30px;
-    }
+.offer-body {
+    height: calc(100vh - 60px);
+    background-color: #ebedee;
+}
 
-    .offer-picture {
-        height: 600px;
-        object-fit: cover;
-    }
+.offer-container {
+    width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    grid-gap: 30px;
+    gap: 30px;
+}
 
-    .offer-infos {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background-color: #fff;
-        width: 320px;
-        padding: 40px;
-    }
+.offer-picture {
+    height: 600px;
+    object-fit: cover;
+}
 
-    .offer-list {
-        padding: 0;
-    }
+.offer-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    width: 320px;
+    padding: 40px;
+}
 
-    .offer-list li {
-        display: flex;
-        padding: 2px 0;
-    }
+.offer-list {
+    padding: 0;
+}
+
+.offer-list li {
+    display: flex;
+    padding: 2px 0;
+}
+
+/* SIGNUP */
+
+.sign-up-container,
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-up-container {
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.sign-up-form {
+    width: 275px;
+    margin: auto;
+}
+
+.sign-up-form>input{
+    border: none;
+    border-bottom: 1px solid #fcced3;
+    height: 35px;
+    margin-bottom: 20px;
+    padding: 1px 2px;
+}
+
+.sign-up-form .input-txt{
+    font-size: 16px;
+    color: #999;
+}
+
+.checkbox-container {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.checkbox-container>div {
+    display: flex;
+}
+
+.checkbox-container>p {
+    text-align: left;
+    color: #999;
+    font-size: 12px;
+}
+
+
+
+.signup-form input[type=checkbox] {
+    transform: scale(2);
+    margin-right: 20px;
+
+}
