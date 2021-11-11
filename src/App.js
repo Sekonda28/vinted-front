@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
       <Route path="/offer/:id" element={<Offer />}></Route>
       <Route path= "/signup" element = {<Signup />}></Route>
+      <Route path= "/login" element = {<Login />}></Route>
         <Route path="/" element={<Home />}></Route>
         
       </Routes>
