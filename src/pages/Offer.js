@@ -34,7 +34,7 @@ const Offer = () => {
       <div className="offer-body">
         <div className="offer-container">
           <div className="offer-pictures">
-            {/* Replace src with prop once pics uploaded */}
+      
             <img
               className="offer-picture"
               src={dataItem.product_image.secure_url}
@@ -43,7 +43,7 @@ const Offer = () => {
           </div>
 
           <div className="offer-infos">
-            <span>{dataItem.product_price} €</span>
+            <span className= "offer-price">{dataItem.product_price} €</span>
             <ul className="offer-list">
               {dataItem.product_details.map((item, index) => {
                 return (

@@ -19,16 +19,17 @@ a:visited,
 a:active {
     color: inherit;
     text-decoration: none;
+    margin-top: 20px;
 }
 
 header,
 .Home,
-.Offers,
+.Offer,
 .sign-up-container {
     font-family: "Maison";
 }
 
-button:hover {
+button:hover, .logo:hover {
     cursor: pointer;
 }
 
@@ -199,7 +200,18 @@ p {
 }
 
 .offer-list {
-    padding: 0;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.offer-price{
+    font-size: 24px;
+    line-height: 32px;
+    color: #111;
 }
 
 .offer-list li {
@@ -260,4 +272,21 @@ p {
     transform: scale(2);
     margin-right: 20px;
 
+}
+
+.sign-up-form button {
+    background-color: #2cb1ba;
+    height: 45px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.sign-up-container a{
+    color: #2cb1ba;
+    font-size: 12px;
 }

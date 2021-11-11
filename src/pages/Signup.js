@@ -70,6 +70,7 @@ const Signup = () => {
         </div>
         <button type="submit">S'inscrire</button>
       </form>
+      <a href="/login">Tu as déjà un compte ? Connecte-toi !</a>
     </div>
   );
 };

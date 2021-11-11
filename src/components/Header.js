@@ -7,15 +7,11 @@ import vintedLogo from "../assets/vinted-logo.png";
 const Header = () => {
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(Cookies.get("token"))
-//   useEffect(()=> {
-//     const checkCookie = async()=>{
 
-//     };
-// }, [loggedIn]);
   return (
     <header>
       <div className="header-container">
-        <div className="logo">
+        <div className="logo" onClick = {()=>navigate("/")}>
           <img src={vintedLogo} alt="vinted logo" />
         </div>
         <div className="search">
