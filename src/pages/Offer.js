@@ -37,7 +37,8 @@ const Offer = () => {
             {/* Replace src with prop once pics uploaded */}
             <img
               className="offer-picture"
-              src="https://images.www.fendi.com/images/h80/hb6/9105753899038/8BH372ABVLF0PWZ_01_large-grey#product-medium"
+              src={dataItem.product_image.secure_url}
+              // src="https://images.www.fendi.com/images/h80/hb6/9105753899038/8BH372ABVLF0PWZ_01_large-grey#product-medium"
               alt="bag"
             />
           </div>
@@ -46,22 +47,10 @@ const Offer = () => {
             <span>{dataItem.product_price} €</span>
             {dataItem.product_details.map((item, index) => {
               return (
-                <ul className="offer-list">
+                <ul className="offer-list" key={index}>
                   <li>
-                    <span>BRAND</span>
-                    <span>{item.value}</span>
-                  </li>
-                  <li>
-                    <span>ETAT</span>
-                    <span>{item.condition}</span>
-                  </li>
-                  <li>
-                    <span>COULEUR</span>
-                    <span>{item.color}</span>
-                  </li>
-                  <li>
-                    <span>LOCATION</span>
-                    <span>{item.city}</span>
+                    <span>{Object.keys(item)}</span>
+                    <span>{Object.values(item)}</span>
                   </li>
                 </ul>
               );
