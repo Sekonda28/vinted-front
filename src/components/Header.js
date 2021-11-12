@@ -1,30 +1,31 @@
-import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
-import { useState, useEffect } from "react";
 
 import vintedLogo from "../assets/vinted-logo.png";
 
-const Header = () => {
+const Header = ({ token, setUser }) => {
   const navigate = useNavigate();
-  const [loggedIn, setLoggedIn] = useState(Cookies.get("token"))
 
   return (
     <header>
       <div className="header-container">
-        <div className="logo" onClick = {()=>navigate("/")}>
+        <div className="logo" onClick={() => navigate("/")}>
           <img src={vintedLogo} alt="vinted logo" />
         </div>
         <div className="search">
-          <input type="text" className="search-input" />
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Recherche des articles"
+          />
           <p className="slider-bar">Placeholder</p>
         </div>
-        {loggedIn ? (
+        {token ? (
           <button
             onClick={() => {
-              Cookies.remove("token");
+              setUser(null);
               navigate("/");
             }}
-            className="header-button subscribe"
+            className="header-button deconnexion"
           >
             Deconnexion
           </button>
@@ -34,7 +35,6 @@ const Header = () => {
               onClick={() => navigate("/signup")}
               className="header-button subscribe"
             >
-              
               S'inscrire
             </button>
             <button

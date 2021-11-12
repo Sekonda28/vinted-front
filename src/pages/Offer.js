@@ -46,10 +46,11 @@ const Offer = () => {
             <span className= "offer-price">{dataItem.product_price} €</span>
             <ul className="offer-list">
               {dataItem.product_details.map((item, index) => {
+                const keys = Object.keys(item)
                 return (
                   <li key={index}>
-                    <span>{Object.keys(item)}</span>
-                    <span>{Object.values(item)}</span>
+                    <span>{(keys[0].toUpperCase())}</span>
+                    <span>{item[keys[0]]}</span>
                   </li>
                 );
               })}

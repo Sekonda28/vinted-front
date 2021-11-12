@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
-import Cookies from "js-cookie";
+import { Navigate } from "react-router";
 
-const Login = () => {
+const Login = ({setUser}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("")
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,11 +17,13 @@ const Login = () => {
           password: password,
         }
       );
-      console.log(response.data.token);
-      Cookies.set("token", response.data.token, { expires: 30 });
+      if(response.data.token)
+      setUser(response.data.token)
+      Navigate("/")
 
     } catch (error) {
       console.log(error.message);
+      setErrorMessage(error.response.data.message)
     }
   };
 
@@ -50,6 +53,7 @@ const Login = () => {
         <button type="submit">Se connecter</button>
       </form>
       <a href="/signup">Pas encore de compte ? Inscris-toi !</a>
+      <span className = "error-message">{errorMessage}</span>
     </div>
   );
 };
