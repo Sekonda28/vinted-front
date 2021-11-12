@@ -2,8 +2,9 @@ import { useNavigate } from "react-router";
 
 import vintedLogo from "../assets/vinted-logo.png";
 
-const Header = ({ token, setUser }) => {
+const Header = ({ token, setUser , setSearch, search }) => {
   const navigate = useNavigate();
+
 
   return (
     <header>
@@ -16,6 +17,8 @@ const Header = ({ token, setUser }) => {
             type="text"
             className="search-input"
             placeholder="Recherche des articles"
+            value = {search}
+            onChange = {(event)=>{setSearch(event.target.value)}}
           />
           <p className="slider-bar">Placeholder</p>
         </div>

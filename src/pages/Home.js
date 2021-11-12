@@ -2,25 +2,32 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Home = () => {
+const Home = ({search}) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+  
       try {
         const response = await axios.get(
           "https://vinted-api-matt.herokuapp.com/offers"
         );
-
-        setData(response.data.offer);
+    
+        if(search){
+         const filteredData = response.data.offer.filter((product)=>
+            product.product_name.toLowerCase().includes(search.toLowerCase()))
+            setData(filteredData)
+        } else{
+          setData(response.data.offer)
+        }
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
       }
     };
     fetchData();
-  }, []);
+  }, [data, search]);
 
   return isLoading ? (
     <span>En cours de chargement...</span>

@@ -10,6 +10,7 @@ import { useState } from "react";
 
 function App() {
   const [token, setToken] = useState(null);
+  const [search, setSearch] = useState(null)
 
   const setUser = (token) => {
     if (token) {
@@ -20,14 +21,15 @@ function App() {
     setToken(token);
   };
 
+
   return (
     <Router>
-      <Header token={token} setUser={setUser}/>
+      <Header token={token} setUser={setUser} search = {search} setSearch={setSearch}/>
       <Routes>
         <Route path="/offer/:id" element={<Offer />}></Route>
         <Route path="/signup" element={<Signup setUser={setUser} />}></Route>
         <Route path="/login" element={<Login setUser={setUser} />}></Route>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home search={search}/>}></Route>
       </Routes>
     </Router>
   );
