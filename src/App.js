@@ -11,6 +11,7 @@ import { useState } from "react";
 function App() {
   const [token, setToken] = useState(null);
   const [search, setSearch] = useState(null)
+  const [value, setValue] = useState([0, 200])
 
   const setUser = (token) => {
     if (token) {
@@ -24,12 +25,12 @@ function App() {
 
   return (
     <Router>
-      <Header token={token} setUser={setUser} search = {search} setSearch={setSearch}/>
+      <Header token={token} setUser={setUser} search = {search} setSearch={setSearch} value={value} setValue= {setValue}/>
       <Routes>
         <Route path="/offer/:id" element={<Offer />}></Route>
         <Route path="/signup" element={<Signup setUser={setUser} />}></Route>
         <Route path="/login" element={<Login setUser={setUser} />}></Route>
-        <Route path="/" element={<Home search={search}/>}></Route>
+        <Route path="/" element={<Home search={search} value ={value}/>}></Route>
       </Routes>
     </Router>
   );
