@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -27,7 +26,15 @@ const Home = () => {
     <span>En cours de chargement...</span>
   ) : (
     <div className="Home">
-      <div className="heros">Placeholder</div>
+      <div className="heros">
+        <div>
+          <div className="heros-message">
+            Prêts à faire du tri dans vos placards ?
+            <button className = "heros-button">Commencer à vendre</button>
+          </div>
+        </div>
+      </div>
+
       <div className="home-card-wrapper">
         {data.map((item, index) => {
           return (

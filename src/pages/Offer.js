@@ -49,12 +49,19 @@ const Offer = () => {
                 const keys = Object.keys(item)
                 return (
                   <li key={index}>
-                    <span>{(keys[0].toUpperCase())}</span>
-                    <span>{item[keys[0]]}</span>
+                    <span className = "product-key">{(keys[0].toUpperCase())}</span>
+                    <span className = "product-value">{item[keys[0]]}</span>
                   </li>
                 );
               })}
             </ul>
+            <div className="offer-page-break"></div>
+            <div className = "offer-content">
+              <p className = "name">{dataItem.product_name}</p>
+              <p className = "description">{dataItem.product_description}</p>
+              <p className = "username">{dataItem.owner.account.username}</p>
+            </div>
+            <button className = "acheter-button">Acheter</button>
           </div>
         </div>
       </div>
