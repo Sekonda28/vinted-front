@@ -11,7 +11,7 @@ const Home = ({search, value}) => {
   
       try {
         const response = await axios.get(
-          `https://vinted-api-matt.herokuapp.com/offers?priceMin=${value[0]}&priceMax=${value[1]}`
+          `https://vinted-api-matt.herokuapp.com/offers?priceMin=${value[0]}&priceMax=${value[1]}&sort={trier}`
         );
     
         if(search){

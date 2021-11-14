@@ -8,26 +8,6 @@ const Header = ({ token, setUser, setSearch, search, value, setValue }) => {
   const navigate = useNavigate();
 
   // Slider design to move to a separate component
-  const marks = [
-    {
-      value: 0,
-      label: '0 €',
-    },
-    {
-      value: 50,
-      label: '50 €',
-    },
-    {
-      value: 100,
-      label: '100 €',
-    },
-    {
-      value: 150,
-      label: '150 €',
-    },
-    {value: 200,
-    label:'200 €'}
-  ];
   
 
   const valuetext=(value)=> {
@@ -56,22 +36,32 @@ const Header = ({ token, setUser, setSearch, search, value, setValue }) => {
               setSearch(event.target.value);
             }}
           />
+          <div>
+          <div className = "sort-section">
+          <div>
+            <span className = "slider-title">Trier par prix: </span>
+            <div>
+
+            </div>
+          </div>
+          <span className = "slider-title">Prix entre:    </span>
           <div className="slider-bar">
           {/* Slider bar tomove to a separate component */}
             <Box sx={{ width: 300 }}>
               <Slider
                 getAriaLabel={() => "Price"}
-                size = "small"
+                // size = "small"
                 value={value}
                 onChange={handleChange}
-                valueLabelDisplay="auto"
+                valueLabelDisplay="on"
+                valueLabelFormat = {value=> value + " €"} 
                 getAriaValueText={valuetext}
                 max={200}
                 style={{ color: teal[400] }}
-                marks={marks}
+                // marks={marks}
               ></Slider>
             </Box>
-          </div>
+          </div></div></div>
         </div>
         {token ? (
           <button
