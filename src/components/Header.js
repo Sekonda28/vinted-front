@@ -1,23 +1,41 @@
 import { useNavigate } from "react-router";
-import Slider from "@mui/material/Slider"
-import Box from "@mui/material/Box"
-import {teal} from "@mui/material/colors"
+import Slider from "@mui/material/Slider";
+import Switch from "@mui/material/Switch";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Box from "@mui/material/Box";
+import { teal } from "@mui/material/colors";
 import vintedLogo from "../assets/vinted-logo.png";
 
-const Header = ({ token, setUser, setSearch, search, value, setValue }) => {
+const Header = ({
+  token,
+  setUser,
+  setSearch,
+  search,
+  value,
+  setValue,
+  checked,
+  setChecked, priceSort, setPriceSort
+}) => {
   const navigate = useNavigate();
 
   // Slider design to move to a separate component
-  
 
-  const valuetext=(value)=> {
+  const valuetext = (value) => {
     return `${value} €`;
-  }
+  };
 
   const handleChange = (event, newValue) => {
-    console.log(newValue);
     setValue(newValue);
-  }
+  };
+
+  const handleCheckedChange = (event) => {
+    setChecked(event.target.checked);
+    if (priceSort === "price-asc"){
+      setPriceSort("price-desc")
+    } else {
+      setPriceSort("price-asc")
+    }
+  };
   // Slider functions end
 
   return (
@@ -37,31 +55,39 @@ const Header = ({ token, setUser, setSearch, search, value, setValue }) => {
             }}
           />
           <div>
-          <div className = "sort-section">
-          <div>
-            <span className = "slider-title">Trier par prix: </span>
-            <div>
-
+            <div className="sort-section">
+                <span className="slider-title">Trier par prix:</span>
+                {/* <i className="fas fa-arrow-circle-up"></i> */}
+                <div>
+                  <FormControlLabel
+                    control={<Switch defaultChecked style={{ color: teal[400]}} color ="default"/>}
+                    checked={checked}
+                    onChange={handleCheckedChange}
+                    label={<i class="fas fa-arrow-circle-down"></i>}
+                    
+                  />
+                  
+                </div>
+              <span className="slider-title">Prix entre: </span>
+              <div className="slider-bar">
+                {/* Slider bar tomove to a separate component */}
+                <Box sx={{ width: 300 }}>
+                  <Slider
+                    getAriaLabel={() => "Price"}
+                    // size = "small"
+                    value={value}
+                    onChange={handleChange}
+                    valueLabelDisplay="on"
+                    valueLabelFormat={(value) => value + " €"}
+                    getAriaValueText={valuetext}
+                    max={200}
+                    style={{ color: teal[400] }}
+                    // marks={marks}
+                  ></Slider>
+                </Box>
+              </div>
             </div>
           </div>
-          <span className = "slider-title">Prix entre:    </span>
-          <div className="slider-bar">
-          {/* Slider bar tomove to a separate component */}
-            <Box sx={{ width: 300 }}>
-              <Slider
-                getAriaLabel={() => "Price"}
-                // size = "small"
-                value={value}
-                onChange={handleChange}
-                valueLabelDisplay="on"
-                valueLabelFormat = {value=> value + " €"} 
-                getAriaValueText={valuetext}
-                max={200}
-                style={{ color: teal[400] }}
-                // marks={marks}
-              ></Slider>
-            </Box>
-          </div></div></div>
         </div>
         {token ? (
           <button

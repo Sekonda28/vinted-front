@@ -10,27 +10,42 @@ import { useState } from "react";
 
 function App() {
   const [token, setToken] = useState(null);
-  const [search, setSearch] = useState(null)
-  const [value, setValue] = useState([0, 200])
+  const [search, setSearch] = useState(null);
+  const [value, setValue] = useState([0, 200]);
+  const [checked, setChecked] = useState(false);
+  const [priceSort, setPriceSort] = useState("price-asc")
 
   const setUser = (token) => {
     if (token) {
-      Cookies.set("userToken", token, {expires: 30});
+      Cookies.set("userToken", token, { expires: 30 });
     } else {
       Cookies.remove("userToken");
     }
     setToken(token);
   };
 
-
   return (
     <Router>
-      <Header token={token} setUser={setUser} search = {search} setSearch={setSearch} value={value} setValue= {setValue}/>
+      <Header
+        token={token}
+        setUser={setUser}
+        search={search}
+        setSearch={setSearch}
+        value={value}
+        setValue={setValue}
+        checked={checked}
+        setChecked={setChecked}
+        priceSort = {priceSort}
+        setPriceSort = {setPriceSort}
+      />
       <Routes>
         <Route path="/offer/:id" element={<Offer />}></Route>
         <Route path="/signup" element={<Signup setUser={setUser} />}></Route>
         <Route path="/login" element={<Login setUser={setUser} />}></Route>
-        <Route path="/" element={<Home search={search} value ={value}/>}></Route>
+        <Route
+          path="/"
+          element={<Home search={search} value={value} priceSort={priceSort} />}
+        ></Route>
       </Routes>
     </Router>
   );
