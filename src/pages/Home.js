@@ -51,7 +51,8 @@ const Home = ({ search, value, priceSort, setShowSort }) => {
                   <span>{item.owner.account.username}</span>
                 </div>
                 <div>
-                  <img src={item.product_image.secure_url} alt="product" />
+                {item.product_image.secure_url&&<img src={item.product_image.secure_url} alt="product" />}
+                  
                 </div>
                 <div className="home-card-price-size-brand">
                   <span>{item.product_price} €</span>

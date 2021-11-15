@@ -69,3 +69,8 @@ const Offer = ({ setShowSort }) => {
 };
 
 export default Offer;
+
+
+// https://res.cloudinary.com/sekonda28/image/upload/v1636981808/vinted/offers/61925c3023fd7dc7c30452c5.jpg 
+
+// https://res.cloudinary.com/sekonda28/image/upload/v1636983364/vinted/offers/6192624323fd7dc7c30452e1.jpg

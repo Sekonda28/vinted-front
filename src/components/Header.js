@@ -77,7 +77,11 @@ const Header = ({
           </div>
         )}
 
-        <button className="header-button sell-button">
+        <button
+          className="header-button sell-button"
+          onClick={() => {
+          if(token){navigate("/publish")} else{navigate("/signup")}}}
+        >
           Vends tes articles
         </button>
       </div>

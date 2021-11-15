@@ -26,7 +26,7 @@ const Signup = ({ setUser, setShowSort }) => {
       console.log (response.data)
       if (response.data.token) {
         setUser(response.data.token);
-        navigate("/");
+        navigate("/publish");
       }
     } catch (error) {
       // console.log(error.response.data);

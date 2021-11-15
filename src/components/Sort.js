@@ -39,6 +39,7 @@ const Sort = ({
               defaultChecked
               style={{ color: teal[400] }}
               color="default"
+              checked = {checked}
             />
           }
           onChange={handleCheckedChange}
