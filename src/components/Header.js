@@ -57,13 +57,13 @@ const Header = ({
           <div>
             <div className="sort-section">
                 <span className="slider-title">Trier par prix:</span>
-                {/* <i className="fas fa-arrow-circle-up"></i> */}
-                <div>
+               
+                <div className = "form-control">
                   <FormControlLabel
                     control={<Switch defaultChecked style={{ color: teal[400]}} color ="default"/>}
                     checked={checked}
                     onChange={handleCheckedChange}
-                    label={<i class="fas fa-arrow-circle-down"></i>}
+                    label={checked? <i className="fas fa-arrow-circle-down"></i>:<i class="fas fa-arrow-circle-up"></i>}
                     
                   />
                   

@@ -98,6 +98,9 @@ p {
     font-family: "Maison";
 }
 
+.form-control .fas {
+    color: #2baeb7;
+}
 
 /* buttons */
 
