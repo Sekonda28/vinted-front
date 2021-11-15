@@ -27,7 +27,7 @@ const Header = ({
         <div className="logo" onClick={() => navigate("/")}>
           <img src={vintedLogo} alt="vinted logo" />
         </div>
-        <div className="search font-awesome">
+        <div className="search">
           <input
             type="text"
             className="search-input"
