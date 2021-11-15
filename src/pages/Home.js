@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
-const Home = ({ search, value, priceSort, setShowSort }) => {
+const Home = ({ search, value, priceSort, setShowSort, token }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  setShowSort(true);
+
+  const navigate = useNavigate()
+
   useEffect(() => {
     const fetchData = async () => {
-      try {
+      try {  setShowSort(true);
         if (search === "") {
           const response = await axios.get(
             `https://vinted-api-matt.herokuapp.com/offers?priceMin=${value[0]}&priceMax=${value[1]}&sort=${priceSort}`
@@ -27,7 +30,7 @@ const Home = ({ search, value, priceSort, setShowSort }) => {
       }
     };
     fetchData();
-  }, [search, value, priceSort]);
+  }, [search, value, priceSort, setShowSort]);
 
   return isLoading ? (
     <span>En cours de chargement...</span>
@@ -37,7 +40,8 @@ const Home = ({ search, value, priceSort, setShowSort }) => {
         <div>
           <div className="heros-message">
             Prêts à faire du tri dans vos placards ?
-            <button className="heros-button">Commencer à vendre</button>
+            <button   onClick={() => {
+          if(token){navigate("/publish")} else{navigate("/signup")}}}className="heros-button">Commencer à vendre</button>
           </div>
         </div>
       </div>

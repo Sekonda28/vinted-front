@@ -62,6 +62,7 @@ function App() {
               value={value}
               priceSort={priceSort}
               setShowSort={setShowSort}
+              token = {token}
             />
           }
         ></Route>

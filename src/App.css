@@ -13,6 +13,31 @@
     font-display: swap;
 }
 
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(158, 158, 158);
+    opacity: 1;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgb(158, 158, 158)
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: rgb(158, 158, 158)
+}
+
+.App {
+
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+
+}
+
 a,
 a:hover,
 a:visited,
@@ -33,6 +58,11 @@ header,
 button:hover,
 .logo:hover {
     cursor: pointer;
+}
+
+button,
+input {
+    outline: none;
 }
 
 h2 {
@@ -446,4 +476,59 @@ p {
     font-size: 40px
 }
 
-.pic-file{ display: none;}
+.pic-file {
+    display: none;
+}
+
+.txt-input-groups {
+    background-color: #fff;
+    margin: 20px 0;
+    box-shadow: 0 0 2px grey;
+}
+
+.txt-input {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+
+
+.txt-input>h4 {
+    font-weight: 400;
+    margin: 0;
+    vertical-align: baseline;
+}
+
+.txt-input>input {
+    width: 50%;
+    border: none;
+    border-bottom: 1px solid #ebedee;
+    color: #000;
+    font-family: "Maison";
+    font-size: 16px;
+}
+
+.txt-input>input:focus {
+    border-bottom: 1px solid #2baeb7;
+}
+
+.txt-input-groups>.txt-input:not(:last-child) {
+    height: 25px;
+    border-bottom: 1px solid #ebedee;
+}
+
+.checkbox-section {
+    width: 50%;
+}
+
+
+
+.checkbox-section>input {
+    border: none;
+    border-bottom: 1px solid #ebedee;
+    color: #000;
+    font-family: "Maison";
+    font-size: 16px;
+    margin-bottom: 40px;
+}

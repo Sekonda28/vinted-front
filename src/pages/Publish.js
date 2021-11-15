@@ -57,12 +57,13 @@ const Publish = ({ token }) => {
           <div className="file-select">
             <div className="preview-without">
               <div className="input-default">
-              <label for="picture" className="pic-label">
-                <span className = "add-button">+</span>
-                <span>Ajoute une photo</span>
-              </label>
-                <input className="pic-file"
-                id = "picture"
+                <label for="picture" className="pic-label">
+                  <span className="add-button">+</span>
+                  <span>Ajoute une photo</span>
+                </label>
+                <input
+                  className="pic-file"
+                  id="picture"
                   type="file"
                   required
                   onChange={(event) => setPicture(event.target.files[0])}
@@ -71,47 +72,97 @@ const Publish = ({ token }) => {
             </div>
           </div>
 
-          <input
-            type="text"
-            placeholder="title"
-            onChange={(event) => setTitle(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="description"
-            onChange={(event) => setDescription(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="brand"
-            onChange={(event) => setBrand(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="size"
-            onChange={(event) => setSize(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="color"
-            onChange={(event) => setColor(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="condition"
-            onChange={(event) => setCondition(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="city"
-            onChange={(event) => setCity(event.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="price"
-            onChange={(event) => setPrice(event.target.value)}
-          />
-          <button type="submit">Post</button>
+          <div className="txt-input-groups">
+            <div className="txt-input">
+              <h4>Titre</h4>
+              <input
+                type="text"
+                placeholder="ex: Chemise Sézanne verte"
+                onChange={(event) => setTitle(event.target.value)}
+              />
+            </div>
+            <div className="txt-input">
+              <h4>Décris ton article</h4>
+              <input
+                type="text"
+                placeholder="ex: porté quelquefois, taille correctement"
+                onChange={(event) => setDescription(event.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="txt-input-groups">
+            <div className="txt-input">
+              <h4>Marque</h4>
+              <input
+                type="text"
+                placeholder="ex: Zara"
+                onChange={(event) => setBrand(event.target.value)}
+              />
+            </div>
+
+            <div className="txt-input">
+              <h4>Taille</h4>
+              <input
+                type="text"
+                placeholder="ex L /40 /12"
+                onChange={(event) => setSize(event.target.value)}
+              />
+            </div>
+
+            <div className="txt-input">
+              {" "}
+              <h4>Couleur</h4>{" "}
+              <input
+                type="text"
+                placeholder="ex: Fuschia"
+                onChange={(event) => setColor(event.target.value)}
+              />
+            </div>
+
+            <div className="txt-input">
+              <h4>Etat</h4>
+              <input
+                type="text"
+                placeholder="Neuf avec étiquette"
+                onChange={(event) => setCondition(event.target.value)}
+              />
+            </div>
+            <div className="txt-input">
+              <h4>Lieu</h4>
+              <input
+                type="text"
+                placeholder="ex Londres"
+                onChange={(event) => setCity(event.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="txt-input-groups">
+            <div className="txt-input">
+              <h4>Prix</h4>
+              <div className="checkbox-section">
+                
+                <input
+                  type="text"
+                  placeholder="0.00 €"
+                  onChange={(event) => setPrice(event.target.value)}
+                />
+                <div className="checkbox-input">
+                  {/* <label for="échanges" className="checkbox-design"></label> */}
+                  <input
+                    type="checkbox"
+                    name="échanges"
+                    id="échanges"
+                    value="échange"
+                  />
+                  <span>Je suis intéressé(e) par les échanges</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button className = "header-button sell-button" type="submit">Ajouter</button>
         </form>
         <span className="error-message">{errorMessage}</span>
       </div>
