@@ -10,10 +10,11 @@ import { useState } from "react";
 
 function App() {
   const [token, setToken] = useState(null);
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState("");
   const [value, setValue] = useState([0, 200]);
   const [checked, setChecked] = useState(false);
-  const [priceSort, setPriceSort] = useState("price-asc")
+  const [priceSort, setPriceSort] = useState("price-asc");
+  const [showSort, setShowSort] = useState();
 
   const setUser = (token) => {
     if (token) {
@@ -35,16 +36,33 @@ function App() {
         setValue={setValue}
         checked={checked}
         setChecked={setChecked}
-        priceSort = {priceSort}
-        setPriceSort = {setPriceSort}
+        priceSort={priceSort}
+        setPriceSort={setPriceSort}
+        showSort={showSort}
       />
       <Routes>
-        <Route path="/offer/:id" element={<Offer />}></Route>
-        <Route path="/signup" element={<Signup setUser={setUser} />}></Route>
-        <Route path="/login" element={<Login setUser={setUser} />}></Route>
+        <Route
+          path="/offer/:id"
+          element={<Offer setShowSort={setShowSort} />}
+        ></Route>
+        <Route
+          path="/signup"
+          element={<Signup setUser={setUser} setShowSort={setShowSort} />}
+        ></Route>
+        <Route
+          path="/login"
+          element={<Login setUser={setUser} setShowSort={setShowSort} />}
+        ></Route>
         <Route
           path="/"
-          element={<Home search={search} value={value} priceSort={priceSort} />}
+          element={
+            <Home
+              search={search}
+              value={value}
+              priceSort={priceSort}
+              setShowSort={setShowSort}
+            />
+          }
         ></Route>
       </Routes>
     </Router>

@@ -2,25 +2,25 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Home = ({search, value, priceSort}) => {
+const Home = ({ search, value, priceSort, setShowSort }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
+  setShowSort(true);
   useEffect(() => {
     const fetchData = async () => {
-  
       try {
-        const response = await axios.get(
-          `https://vinted-api-matt.herokuapp.com/offers?priceMin=${value[0]}&priceMax=${value[1]}&sort=${priceSort}`
-        );
-    
-        if(search){
-         const filteredData = response.data.offer.filter((product)=>
-            product.product_name.toLowerCase().includes(search.toLowerCase()))
-            setData(filteredData)
-        } else{
-          setData(response.data.offer)
+        if (search === "") {
+          const response = await axios.get(
+            `https://vinted-api-matt.herokuapp.com/offers?priceMin=${value[0]}&priceMax=${value[1]}&sort=${priceSort}`
+          );
+          setData(response.data.offer);
+        } else {
+          const response = await axios.get(
+            `https://vinted-api-matt.herokuapp.com/offers?priceMin=${value[0]}&priceMax=${value[1]}&sort=${priceSort}&title=${search}`
+          );
+          setData(response.data.offer);
         }
+
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -37,7 +37,7 @@ const Home = ({search, value, priceSort}) => {
         <div>
           <div className="heros-message">
             Prêts à faire du tri dans vos placards ?
-            <button className = "heros-button">Commencer à vendre</button>
+            <button className="heros-button">Commencer à vendre</button>
           </div>
         </div>
       </div>

@@ -1,11 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
-import { Navigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({setUser}) => {
+
+const Login = ({ setUser, setShowSort }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("")
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate()
+  setShowSort(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,20 +21,25 @@ const Login = ({setUser}) => {
           password: password,
         }
       );
-      if(response.data.token)
-      setUser(response.data.token)
-      Navigate("/")
-
+      console.log(response.data)
+      if (response.data.token) {
+        setUser(response.data.token);
+        navigate("/");
+      }
     } catch (error) {
-      console.log(error.message);
-      setErrorMessage(error.response.data.message)
+      setErrorMessage(error.response.data.message);
     }
   };
 
   return (
     <div className="sign-up-container">
       <h2>Se connecter</h2>
-      <form onSubmit={handleSubmit} className="sign-up-form">
+      <form
+        onSubmit={(event) => {
+          handleSubmit(event);
+        }}
+        className="sign-up-form"
+      >
         <input
           className="input-txt"
           type="email"
@@ -53,7 +62,7 @@ const Login = ({setUser}) => {
         <button type="submit">Se connecter</button>
       </form>
       <a href="/signup">Pas encore de compte ? Inscris-toi !</a>
-      <span className = "error-message">{errorMessage}</span>
+      <span className="error-message">{errorMessage}</span>
     </div>
   );
 };

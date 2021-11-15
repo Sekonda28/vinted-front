@@ -1,12 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
-import { Navigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
-const Signup = ({setUser}) => {
+const Signup = ({ setUser, setShowSort }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("")
+  const [errorMessage, setErrorMessage] = useState("");
+
+  setShowSort(false);
+
+  const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,13 +23,14 @@ const Signup = ({setUser}) => {
           password: password,
         }
       );
-      if(response.data.token){
-      setUser(response.data.token)
-      Navigate("/")}
-      } 
-      catch (error) {
-      console.log(error.response.data.message);
-      setErrorMessage(error.response.data.message)
+      console.log (response.data)
+      if (response.data.token) {
+        setUser(response.data.token);
+        navigate("/");
+      }
+    } catch (error) {
+      // console.log(error.response.data);
+      setErrorMessage(error.response.data.message);
     }
   };
 
@@ -74,7 +79,7 @@ const Signup = ({setUser}) => {
         <button type="submit">S'inscrire</button>
       </form>
       <a href="/login">Tu as déjà un compte ? Connecte-toi !</a>
-      <span className = "error-message">{errorMessage}</span>
+      <span className="error-message">{errorMessage}</span>
     </div>
   );
 };
