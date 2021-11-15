@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 const Publish = ({ token }) => {
   const navigate = useNavigate();
 
-  const [picture, setPicture] = useState({});
+  const [picture, setPicture] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
@@ -54,9 +54,10 @@ const Publish = ({ token }) => {
         <h2>Vends ton article</h2>
 
         <form onSubmit={handleSubmit}>
-          <div className="file-select">
-            <div className="preview-without">
-              <div className="input-default">
+          <div className="file-select"><div className="preview-without">
+          {(picture!==null)?<div className = "upload-message" onClick = {()=>{
+setPicture(null)
+          }}><p >Photo ajoutée avec succès ! </p> <p>Clique ici pour en uploader une nouvelle</p></div>:( <div className="input-default">
                 <label for="picture" className="pic-label">
                   <span className="add-button">+</span>
                   <span>Ajoute une photo</span>
@@ -68,8 +69,14 @@ const Publish = ({ token }) => {
                   required
                   onChange={(event) => setPicture(event.target.files[0])}
                 />
-              </div>
-            </div>
+             
+              </div> )}
+            
+            
+  
+
+            </div> 
+            
           </div>
 
           <div className="txt-input-groups">
@@ -142,7 +149,6 @@ const Publish = ({ token }) => {
             <div className="txt-input">
               <h4>Prix</h4>
               <div className="checkbox-section">
-                
                 <input
                   type="text"
                   placeholder="0.00 €"
@@ -161,8 +167,10 @@ const Publish = ({ token }) => {
               </div>
             </div>
           </div>
+          <div className = "post-button-container">          <button className="post-button" type="submit">
+            Ajouter
+          </button></div>
 
-          <button className = "header-button sell-button" type="submit">Ajouter</button>
         </form>
         <span className="error-message">{errorMessage}</span>
       </div>

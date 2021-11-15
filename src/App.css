@@ -443,6 +443,14 @@ p {
     box-shadow: 0 0 2px grey;
 }
 
+.upload-message {
+    color: red;
+    text-align: center;
+    border: 1px solid #0ab1ba;
+    padding: 10px;
+    cursor: pointer;
+}
+
 .preview-without {
     border: 1px dashed #ebedee;
     border-radius: 3px;
@@ -532,3 +540,19 @@ p {
     font-size: 16px;
     margin-bottom: 40px;
 }
+.post-button-container{
+    display: flex;
+    justify-content: flex-end;
+}
+.post-button{
+    background-color: #0ab1ba;
+    text-align: center;
+    align-self: center;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin: 50px 0;
+    padding: 12px
+}
+

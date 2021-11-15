@@ -80,7 +80,7 @@ const Header = ({
         <button
           className="header-button sell-button"
           onClick={() => {
-          if(token){navigate("/publish")} else{navigate("/signup")}}}
+          if(token){navigate("/publish")} else{navigate("/login")}}}
         >
           Vends tes articles
         </button>
