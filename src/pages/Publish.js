@@ -54,29 +54,34 @@ const Publish = ({ token }) => {
         <h2>Vends ton article</h2>
 
         <form onSubmit={handleSubmit}>
-          <div className="file-select"><div className="preview-without">
-          {(picture!==null)?<div className = "upload-message" onClick = {()=>{
-setPicture(null)
-          }}><p >Photo ajoutée avec succès ! </p> <p>Clique ici pour en uploader une nouvelle</p></div>:( <div className="input-default">
-                <label for="picture" className="pic-label">
-                  <span className="add-button">+</span>
-                  <span>Ajoute une photo</span>
-                </label>
-                <input
-                  className="pic-file"
-                  id="picture"
-                  type="file"
-                  required
-                  onChange={(event) => setPicture(event.target.files[0])}
-                />
-             
-              </div> )}
-            
-            
-  
-
-            </div> 
-            
+          <div className="file-select">
+            <div className="preview-without">
+              {picture !== null ? (
+                <div
+                  className="upload-message"
+                  onClick={() => {
+                    setPicture(null);
+                  }}
+                >
+                  <p>Photo ajoutée avec succès ! </p>
+                  <p>Clique ici pour en uploader une nouvelle</p>
+                </div>
+              ) : (
+                <div className="input-default">
+                  <label htmlFor="picture" className="pic-label">
+                    <span className="add-button">+</span>
+                    <span>Ajoute une photo</span>
+                  </label>
+                  <input
+                    className="pic-file"
+                    id="picture"
+                    type="file"
+                    required
+                    onChange={(event) => setPicture(event.target.files[0])}
+                  />
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="txt-input-groups">
@@ -118,8 +123,7 @@ setPicture(null)
             </div>
 
             <div className="txt-input">
-              {" "}
-              <h4>Couleur</h4>{" "}
+              <h4>Couleur</h4>
               <input
                 type="text"
                 placeholder="ex: Fuschia"
@@ -155,7 +159,6 @@ setPicture(null)
                   onChange={(event) => setPrice(event.target.value)}
                 />
                 <div className="checkbox-input">
-                  {/* <label for="échanges" className="checkbox-design"></label> */}
                   <input
                     type="checkbox"
                     name="échanges"
@@ -167,10 +170,12 @@ setPicture(null)
               </div>
             </div>
           </div>
-          <div className = "post-button-container">          <button className="post-button" type="submit">
-            Ajouter
-          </button></div>
-
+          <div className="post-button-container">
+            {" "}
+            <button className="post-button" type="submit">
+              Ajouter
+            </button>
+          </div>
         </form>
         <span className="error-message">{errorMessage}</span>
       </div>

@@ -49,8 +49,8 @@ const Home = ({ search, value, priceSort, setShowSort, token }) => {
       <div className="home-card-wrapper">
         {data.map((item, index) => {
           return (
-            <Link to={`/offer/${item._id}`}>
-              <div className="home-card-container" key={index}>
+            <Link to={`/offer/${item._id}`} key={index}>
+              <div className="home-card-container" >
                 <div className="home-card-username">
                   <span>{item.owner.account.username}</span>
                 </div>

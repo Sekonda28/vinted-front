@@ -29,7 +29,6 @@ const Signup = ({ setUser, setShowSort }) => {
         navigate("/publish");
       }
     } catch (error) {
-      // console.log(error.response.data);
       setErrorMessage(error.response.data.message);
     }
   };

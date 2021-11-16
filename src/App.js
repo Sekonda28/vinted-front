@@ -62,11 +62,11 @@ function App() {
               value={value}
               priceSort={priceSort}
               setShowSort={setShowSort}
-              token = {token}
+              token={token}
             />
           }
         ></Route>
-        <Route path="/publish" element={<Publish token={token}/>} ></Route>
+        <Route path="/publish" element={<Publish token={token} />}></Route>
       </Routes>
     </Router>
   );
