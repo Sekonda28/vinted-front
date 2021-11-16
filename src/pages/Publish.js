@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { Navigate } from "react-router";
 
 const Publish = ({ token }) => {
   const navigate = useNavigate();
@@ -49,6 +50,7 @@ const Publish = ({ token }) => {
   };
 
   return (
+    (token)?
     <div className="publish-main">
       <div className="publish-container">
         <h2>Vends ton article</h2>
@@ -171,7 +173,6 @@ const Publish = ({ token }) => {
             </div>
           </div>
           <div className="post-button-container">
-            {" "}
             <button className="post-button" type="submit">
               Ajouter
             </button>
@@ -179,7 +180,7 @@ const Publish = ({ token }) => {
         </form>
         <span className="error-message">{errorMessage}</span>
       </div>
-    </div>
+    </div>: <Navigate to ="/login"/>
   );
 };
 

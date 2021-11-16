@@ -17,10 +17,6 @@ const Header = ({
 }) => {
   const navigate = useNavigate();
 
-  // Slider design to move to a separate component
-
-  // Slider functions end
-
   return (
     <header>
       <div className="header-container">
