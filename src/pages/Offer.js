@@ -1,8 +1,10 @@
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
-const Offer = ({ setShowSort }) => {
+const Offer = ({ setShowSort, token }) => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [dataItem, setDataItem] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -22,8 +24,8 @@ const Offer = ({ setShowSort }) => {
         console.log(error.message);
       }
     };
-    fetchData()
-    setShowSort(false)
+    fetchData();
+    setShowSort(false);
   }, [id, setShowSort]);
 
   console.log(dataItem);
@@ -61,7 +63,21 @@ const Offer = ({ setShowSort }) => {
               <p className="description">{dataItem.product_description}</p>
               <p className="username">{dataItem.owner.account.username}</p>
             </div>
-            <button className="acheter-button">Acheter</button>
+            <button
+              className="acheter-button"
+              onClick={() => {
+                if (token) {
+                  navigate("/payment", {
+                    state: { title: dataItem.product_name ,
+                    price: dataItem.product_price,}
+                  });
+                } else {
+                  navigate("/login");
+                }
+              }}
+            >
+              Acheter
+            </button>
           </div>
         </div>
       </div>
@@ -70,5 +86,3 @@ const Offer = ({ setShowSort }) => {
 };
 
 export default Offer;
-
-

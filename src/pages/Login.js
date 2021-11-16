@@ -28,7 +28,7 @@ useEffect(() => {
       console.log(response.data)
       if (response.data.token) {
         setUser(response.data.token);
-        navigate("/publish");
+        navigate("/");
       }
     } catch (error) {
       setErrorMessage(error.response.data.message);

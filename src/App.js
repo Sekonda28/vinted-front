@@ -7,6 +7,7 @@ import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 import { useState } from "react";
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
       <Routes>
         <Route
           path="/offer/:id"
-          element={<Offer setShowSort={setShowSort} />}
+          element={<Offer setShowSort={setShowSort} token={token} />}
         ></Route>
         <Route
           path="/signup"
@@ -67,6 +68,7 @@ function App() {
           }
         ></Route>
         <Route path="/publish" element={<Publish token={token} setShowSort={setShowSort}/>}></Route>
+        <Route path="/payment" element={<Payment setShowSort={setShowSort}/>}></Route> 
       </Routes>
     </Router>
   );

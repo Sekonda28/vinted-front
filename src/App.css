@@ -51,7 +51,8 @@ header,
 .Home,
 .Offer,
 .sign-up-container,
-.publish-container {
+.publish-container,
+.Checkout {
     font-family: "Maison";
 }
 
@@ -538,11 +539,13 @@ p {
     font-size: 16px;
     margin-bottom: 40px;
 }
-.post-button-container{
+
+.post-button-container {
     display: flex;
     justify-content: flex-end;
 }
-.post-button{
+
+.post-button {
     background-color: #0ab1ba;
     text-align: center;
     align-self: center;
@@ -554,3 +557,57 @@ p {
     padding: 12px
 }
 
+/* PAYMENT PAGE */
+.payment-wrapper {
+    background: #ebedee;
+    height: calc(100vh - 60px);
+}
+
+.payment-container {
+    width: 600px;
+    margin: 0 auto;
+    padding: 36px 20px;
+}
+
+.payment-summary {
+    background: #fff;
+}
+
+.payment-summary>.title {
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    color: #999;
+    padding: 24px 24px 8px;
+}
+
+.payment-summary-details {
+    padding: 24px;
+    text-align: justify;
+}
+.payment-summary-details li{
+
+font-size: 16px;
+line-height: 22px;
+color: #666;
+padding: 4px 0;
+display: grid;
+grid: auto/1fr auto;
+align-items: center;
+}
+
+.payment-summary>.divider{
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: rgba(17,17,17,.1);
+    margin: 24px 0;
+}
+.payment-card{
+    background-color: #fff;
+}
+
+.payment-card .payment-summary{
+    text-align: justify;
+    padding: 24px
+}
