@@ -67,8 +67,14 @@ function App() {
             />
           }
         ></Route>
-        <Route path="/publish" element={<Publish token={token} setShowSort={setShowSort}/>}></Route>
-        <Route path="/payment" element={<Payment setShowSort={setShowSort}/>}></Route> 
+        <Route
+          path="/publish"
+          element={<Publish token={token} setShowSort={setShowSort} />}
+        ></Route>
+        <Route
+          path="/payment"
+          element={<Payment setShowSort={setShowSort} />}
+        ></Route>
       </Routes>
     </Router>
   );

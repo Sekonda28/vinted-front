@@ -68,8 +68,11 @@ const Offer = ({ setShowSort, token }) => {
               onClick={() => {
                 if (token) {
                   navigate("/payment", {
-                    state: { title: dataItem.product_name ,
-                    price: dataItem.product_price,}
+                    state: {
+                      title: dataItem.product_name,
+                      price: dataItem.product_price,
+                      user_Id: dataItem.owner.account._id,
+                    },
                   });
                 } else {
                   navigate("/login");

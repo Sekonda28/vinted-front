@@ -571,6 +571,7 @@ p {
 
 .payment-summary {
     background: #fff;
+    line-height: 25px;
 }
 
 .payment-summary>.title {
@@ -585,29 +586,64 @@ p {
     padding: 24px;
     text-align: justify;
 }
-.payment-summary-details li{
 
-font-size: 16px;
-line-height: 22px;
-color: #666;
-padding: 4px 0;
-display: grid;
-grid: auto/1fr auto;
-align-items: center;
+.payment-summary-details li {
+
+    font-size: 16px;
+    line-height: 22px;
+    color: #666;
+    padding: 4px 0;
+    display: grid;
+    grid: auto/1fr auto;
+    align-items: center;
 }
 
-.payment-summary>.divider{
+.payment-summary-details>p {
+    text-align: center;
+}
+
+.payment-summary>.divider {
     display: block;
     width: 100%;
     height: 1px;
-    background: rgba(17,17,17,.1);
+    background: rgba(17, 17, 17, .1);
     margin: 24px 0;
 }
-.payment-card{
+
+.payment-card {
     background-color: #fff;
 }
 
-.payment-card .payment-summary{
+.payment-card .payment-summary {
     text-align: justify;
     padding: 24px
+}
+
+.stripe-element {
+    margin: 10px 0 20px;
+    padding: 10px 14px;
+    box-shadow: 0 1px 3px rgb(50 50 93 / 15%), 0 1px 0 rgb(0 0 0 / 2%);
+    border: 0;
+    outline: 0;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.payment-button {
+    margin-top: 8px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 22px;
+    height: 44px;
+    padding: 0 14px;
+    color: #fff;
+    border: 1px solid;
+    border-radius: 4px;
+    background: #00c06d;
+    border-color: #00c06d;
+}
+
+.return-home:hover {
+    cursor: pointer;
+    color: #00c06d;
 }

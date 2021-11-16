@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
-const Checkoutform = ({ price, title }) => {
+const Checkoutform = ({ price, title, user_Id }) => {
   const stripe = useStripe();
   const element = useElements();
-
-  const userId = "qwerty";
+  const navigate = useNavigate();
+  const userId = user_Id;
 
   const [completed, setCompleted] = useState(false);
 
@@ -24,7 +25,7 @@ const Checkoutform = ({ price, title }) => {
         "https://vinted-api-matt.herokuapp.com/payment",
         {
           stripeToken: stripeResponse.token.id,
-          productPrice: price,
+          productPrice: price + 4.5,
           title: title,
         }
       );
@@ -49,7 +50,7 @@ const Checkoutform = ({ price, title }) => {
                 <ul>
                   <li>
                     Commande
-                    <span>{price} €</span>
+                    <span>{price.toFixed(2)} €</span>
                   </li>
                   <li>
                     Frais protection acheteurs <span>1.50 €</span>
@@ -63,28 +64,60 @@ const Checkoutform = ({ price, title }) => {
               <div className="payment-summary-details">
                 <ul>
                   <li style={{ fontWeight: 700, color: "black" }}>
-                    Total <span>Test</span>
+                    Total <span>{(price + 4.5).toFixed(2)} €</span>
                   </li>
                 </ul>
               </div>
             </div>
             <div className="payment-card">
               <div className="payment-summary">
-                Il ne vous reste plus qu'un étape pour vous offrir{" "}
-                <span style={{ fontWeight: 700 }}>{title}</span>. Vous allez
-                payer <span style={{ fontWeight: 700 }}>{price + 4.5}</span>{" "}
+                Il ne vous reste plus qu'un étape pour vous offrir
+                <span style={{ fontWeight: 700 }}> {title}</span>. Vous allez
+                payer{" "}
+                <span style={{ fontWeight: 700 }}>
+                  {" "}
+                  {(price + 4.5).toFixed(2)} €{" "}
+                </span>
                 (frais de protection et frais de port inclus).
                 <div className="divider"></div>
                 <form onSubmit={handleSubmit}>
-                  <CardElement />
-                  <button type="submit">Valider</button>
+                  <div className="stripe-element">
+                    <CardElement />
+                  </div>
+
+                  <button className="payment-button" type="submit">
+                    Valider
+                  </button>
                 </form>
               </div>
             </div>
           </div>
         </div>
       ) : (
-        <span>Paiement effectué !</span>
+        <div className="payment-wrapper">
+          <div className="payment-container">
+            <div className="payment-summary">
+              <div className="payment-summary-details">
+                <p>Paiement effectué !</p>
+
+                <p>
+                  Tu as acheté:
+                  <span style={{ fontWeight: 700 }}> {title} </span>
+                  pour{" "}
+                  <span style={{ fontWeight: 700 }}>
+                    {" "}
+                    {(price + 4.5).toFixed(2)} €{" "}
+                  </span>
+                  (frais de protection et frais de port inclus).
+                </p>
+
+                <p className="return-home" onClick={() => navigate("/")}>
+                  Clique ici pour retourner à la page d'accueil
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
