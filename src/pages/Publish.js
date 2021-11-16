@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { Navigate } from "react-router";
 
-const Publish = ({ token }) => {
+const Publish = ({ token, setShowSort }) => {
+
+  useEffect(() => {
+    setShowSort(false)
+    }
+  , [setShowSort])
   const navigate = useNavigate();
 
   const [picture, setPicture] = useState(null);
@@ -30,6 +35,8 @@ const Publish = ({ token }) => {
     formData.append("condition", condition);
     formData.append("city", city);
     formData.append("price", price);
+
+   
 
     try {
       const response = await axios.post(

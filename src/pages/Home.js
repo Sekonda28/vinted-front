@@ -11,7 +11,7 @@ const Home = ({ search, value, priceSort, setShowSort, token }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {  setShowSort(true);
+      try {  ;
         if (search === "") {
           const response = await axios.get(
             `https://vinted-api-matt.herokuapp.com/offers?priceMin=${value[0]}&priceMax=${value[1]}&sort=${priceSort}`
@@ -29,7 +29,8 @@ const Home = ({ search, value, priceSort, setShowSort, token }) => {
         console.log(error.message);
       }
     };
-    fetchData();
+    fetchData()
+    setShowSort(true)
   }, [search, value, priceSort, setShowSort]);
 
   return isLoading ? (

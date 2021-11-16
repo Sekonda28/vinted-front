@@ -7,7 +7,7 @@ const Offer = ({ setShowSort }) => {
   const [dataItem, setDataItem] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  setShowSort(false);
+  // );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,8 +22,9 @@ const Offer = ({ setShowSort }) => {
         console.log(error.message);
       }
     };
-    fetchData();
-  }, [id]);
+    fetchData()
+    setShowSort(false)
+  }, [id, setShowSort]);
 
   console.log(dataItem);
 

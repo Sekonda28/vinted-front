@@ -66,7 +66,7 @@ function App() {
             />
           }
         ></Route>
-        <Route path="/publish" element={<Publish token={token} />}></Route>
+        <Route path="/publish" element={<Publish token={token} setShowSort={setShowSort}/>}></Route>
       </Routes>
     </Router>
   );

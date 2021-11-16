@@ -268,8 +268,6 @@ p {
     display: flex;
     justify-content: space-around;
     padding: 30px;
-    grid-gap: 30px;
-    gap: 30px;
 }
 
 .offer-picture {

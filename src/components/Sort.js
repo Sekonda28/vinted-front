@@ -36,7 +36,6 @@ const Sort = ({
         <FormControlLabel
           control={
             <Switch
-              defaultChecked
               style={{ color: teal[400] }}
               color="default"
               checked = {checked}

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Signup = ({ setUser, setShowSort }) => {
@@ -8,7 +8,12 @@ const Signup = ({ setUser, setShowSort }) => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  setShowSort(false);
+  // setShowSort(false);
+
+  useEffect(() => {
+    setShowSort(false)
+    }
+  , [setShowSort])
 
   const navigate = useNavigate()
 

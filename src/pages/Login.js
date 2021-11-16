@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
 const Login = ({ setUser, setShowSort }) => {
@@ -9,8 +10,11 @@ const Login = ({ setUser, setShowSort }) => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate()
-  setShowSort(false);
-
+  // setShowSort(false);
+useEffect(() => {
+  setShowSort(false)
+  }
+, [setShowSort])
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
