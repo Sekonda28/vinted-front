@@ -1,6 +1,6 @@
 <h1 align="center"><project-name>Vinted replica</h1>
 
-<p align="center"><project-description>This page replicates part of the Vinted website using React, Node, MongoDB, Stripe and Cloudinary.  Key features include:
+<p><project-description>This page replicates part of the Vinted website using React, Node, MongoDB, Stripe and Cloudinary.  Key features include:
 <ul>
 <li>Showing all available offers on the website</li>
 <li>Ability to click on individual offers to go a detailed item screen</li>
