@@ -3,7 +3,7 @@
 <p><project-description>This page replicates part of the Vinted website using React, Node, MongoDB, Stripe and Cloudinary.  Key features include:
 <ul>
 <li>Showing all available offers on the website</li>
-<li>Ability to click on individual offers to go a detailed item screen</li>
+<li>Ability to click on individual offers to go to a detailed item screen</li>
 <li>Searching for items by name and filtering by price using the integrated MUI bar</li>
 <li>Ability to create a user account and upload items</li>
 <li>Ability to pay for items using Stripe (test integration)</li></ul>
